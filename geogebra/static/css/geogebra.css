@@ -1,0 +1,9 @@
+/* CSS for GeogebraXBlock */
+
+.geogebra_block .count {
+    font-weight: bold;
+}
+
+.geogebra_block p {
+    cursor: pointer;
+}
