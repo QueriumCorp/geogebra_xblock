@@ -10,7 +10,7 @@ function GeoGebraXBlock(runtime, element, data) {
         "showToolBar": true, 
         "showAlgebraInput": true, 
         "showMenuBar": true,
-	"filename": ggb_url;
+        "filename": ggb_url
     }, true);
     
     window.addEventListener("load", function() { 
