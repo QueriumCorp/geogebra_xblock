@@ -40,12 +40,16 @@ class GeoGebraXBlock(XBlock):
         The primary view of the GeoGebraXBlock, shown to students
         when viewing courses.
         """
+	data = {
+                "ggb_url" : self.ggb_url
+               }
+
         html = self.resource_string("static/html/geogebra.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/geogebra.css"))
         frag.add_javascript_url("https://cdn.geogebra.org/apps/deployggb.js")
         frag.add_javascript(self.resource_string("static/js/src/geogebra.js"))
-        frag.initialize_js('GeoGebraXBlock')
+        frag.initialize_js('GeoGebraXBlock',data)
         return frag
 
     # SAVE GGB URL

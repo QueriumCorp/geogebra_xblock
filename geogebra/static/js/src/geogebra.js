@@ -1,5 +1,7 @@
 /* Javascript for GeoGebraXBlock. */
-function GeoGebraXBlock(runtime, element) {
+function GeoGebraXBlock(runtime, element, data) {
+
+    var ggb_url = data.ggb_url;
 
     var ggbApp = new GGBApplet({
         "appName": "graphing", 
@@ -7,7 +9,8 @@ function GeoGebraXBlock(runtime, element) {
         "height": 600, 
         "showToolBar": true, 
         "showAlgebraInput": true, 
-        "showMenuBar": true 
+        "showMenuBar": true,
+	"filename": ggb_url;
     }, true);
     
     window.addEventListener("load", function() { 
