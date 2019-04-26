@@ -3,10 +3,16 @@ function GeoGebraXBlock(runtime, element, data) {
 
     var ggb_url;
 
-    if (data.ggb_url == null) {   // might be an older xblock instance without this field
+    // it might be an older xblock instance without this field
+    if (data.ggb_url == null) {
         ggb_url = "";
     } else {
         ggb_url = data.ggb_url;
+    };
+
+    // don't bother fetching the default url
+    if (ggb_url === "https://cdn.querium.com/geogebra/XXXXX.ggb") {
+        ggb_url = "";
     };
 
     var ggbApp = new GGBApplet({
