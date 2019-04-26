@@ -2,8 +2,15 @@
 
 import pkg_resources
 from xblock.core import XBlock
-from xblock.fields import Integer, Scope
-from xblock.fragment import Fragment
+# from xblock.fields import Integer, String, Scope, Dict, Float, Boolean
+from xblock.fields import Integer, Scope, String
+# from xblock.fragment import Fragment
+# McDaniel apr-2019: this is deprecated.
+from web_fragments.fragment import Fragment
+# from xblock.scorable import ScorableXBlockMixin, Score
+from xblockutils.studio_editable import StudioEditableXBlockMixin
+from logging import getLogger
+logger = getLogger(__name__)
 
 
 class GeoGebraXBlock(XBlock):
