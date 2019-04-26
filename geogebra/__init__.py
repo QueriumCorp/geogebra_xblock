@@ -1,1 +1,1 @@
-from .geogebra import GeogebraXBlock
+from .geogebra import GeoGebraXBlock

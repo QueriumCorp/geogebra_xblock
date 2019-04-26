@@ -24,7 +24,7 @@ def package_data(pkg, roots):
 setup(
     name='geogebra-xblock',
     version='0.1',
-    description='geogebra XBlock',   # TODO: write a better description.
+    description='Open EdX XBlock for GeoGebra graphing calculator'
     license='UNKNOWN',          # TODO: choose a license: 'AGPL v3' and 'Apache 2.0' are popular.
     packages=[
         'geogebra',
@@ -34,7 +34,7 @@ setup(
     ],
     entry_points={
         'xblock.v1': [
-            'geogebra = geogebra:GeogebraXBlock',
+            'geogebra = geogebra:GeoGebraXBlock',
         ]
     },
     package_data=package_data("geogebra", ["static", "public"]),

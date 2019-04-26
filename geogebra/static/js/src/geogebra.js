@@ -1,5 +1,5 @@
-/* Javascript for GeogebraXBlock. */
-function GeogebraXBlock(runtime, element) {
+/* Javascript for GeoGebraXBlock. */
+function GeoGebraXBlock(runtime, element) {
 
     var ggbApp = new GGBApplet({
         "appName": "graphing", 

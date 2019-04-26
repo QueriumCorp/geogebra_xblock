@@ -6,7 +6,7 @@ from xblock.fields import Integer, Scope
 from xblock.fragment import Fragment
 
 
-class GeogebraXBlock(XBlock):
+class GeoGebraXBlock(XBlock):
     """
     TO-DO: document what your XBlock does.
     """
@@ -20,6 +20,8 @@ class GeogebraXBlock(XBlock):
         help="A simple counter, to show something happening",
     )
 
+    ggb_url = String(help="GGB filename or URL", default="https://cdn.querium.com/geogebra/XXXXX.ggb", scope=Scope.content)
+
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
@@ -28,7 +30,7 @@ class GeogebraXBlock(XBlock):
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         """
-        The primary view of the GeogebraXBlock, shown to students
+        The primary view of the GeoGebraXBlock, shown to students
         when viewing courses.
         """
         html = self.resource_string("static/html/geogebra.html")
@@ -36,8 +38,19 @@ class GeogebraXBlock(XBlock):
         frag.add_css(self.resource_string("static/css/geogebra.css"))
         frag.add_javascript_url("https://cdn.geogebra.org/apps/deployggb.js")
         frag.add_javascript(self.resource_string("static/js/src/geogebra.js"))
-        frag.initialize_js('GeogebraXBlock')
+        frag.initialize_js('GeoGebraXBlock')
         return frag
+
+    # SAVE GGB URL
+    @XBlock.json_handler
+    def save_question(self, data, suffix=''):
+        logger.info('save_question() - entered')
+        self.ggb_url = data['ggb_url']
+
+        self.display_name = "GeoGebra"
+
+        print self.display_name
+        return {'result': 'success'}
 
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
@@ -58,10 +71,10 @@ class GeogebraXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("GeogebraXBlock",
+            ("GeoGebraXBlock",
              """<geogebra/>
              """),
-            ("Multiple GeogebraXBlock",
+            ("Multiple GeoGebraXBlock",
              """<vertical_demo>
                 <geogebra/>
                 <geogebra/>
@@ -69,3 +82,31 @@ class GeogebraXBlock(XBlock):
                 </vertical_demo>
              """),
         ]
+
+    def studio_view(self, context=None):
+        logger.info('geogebra xblock studio_view() - entered')
+        """
+        The STUDIO view of the GeoGebraXblock, shown to instructors
+        when authoring courses.
+        """
+        html = self.resource_string("static/html/geogebraxstudio.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/geogebraxstudio.css"))
+        frag.add_javascript(self.resource_string("static/js/src/geogebraxstudio.js"))
+
+        frag.initialize_js('GeoGebraxStudio')
+        return frag
+
+    def author_view(self, context=None):
+        logger.info('geogebra xblock author_view() - entered')
+        """
+        The AUTHOR view of the GeoGebraXblock, shown to instructors
+        when previewing courses.
+        """
+        html = self.resource_string("static/html/geogebraxauthor.html")
+        frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string("static/css/geogebraxauthor.css"))
+        frag.add_javascript(self.resource_string("static/js/src/geogebraxauthor.js"))
+
+        frag.initialize_js('GeoGebraxAuthor')
+        return frag

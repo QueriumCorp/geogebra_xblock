@@ -3,8 +3,14 @@ geogebra/__init__.py
 geogebra/geogebra.py
 geogebra/static/README.txt
 geogebra/static/css/geogebra.css
+geogebra/static/css/geogebraxauthor.css
+geogebra/static/css/geogebraxstudio.css
 geogebra/static/html/geogebra.html
+geogebra/static/html/geogebraxauthor.html
+geogebra/static/html/geogebraxstudio.html
 geogebra/static/js/src/geogebra.js
+geogebra/static/js/src/geogebraxauthor.js
+geogebra/static/js/src/geogebraxstudio.js
 geogebra_xblock.egg-info/PKG-INFO
 geogebra_xblock.egg-info/SOURCES.txt
 geogebra_xblock.egg-info/dependency_links.txt
