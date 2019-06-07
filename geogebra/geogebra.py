@@ -44,12 +44,14 @@ class GeoGebraXBlock(XBlock):
 	"""
 	Might come from an XML import that is missing the field
 	"""
-	if (typeof self.ggb_url === "undefined") {
-		self.ggb_url = ""
+	var url = self.ggb_url
+
+	if (typeof url === "undefined") {
+		url = ""
 	}
 
 	data = {
-                "ggb_url" : self.ggb_url
+                "ggb_url" : url
                }
 
         html = self.resource_string("static/html/geogebra.html")
