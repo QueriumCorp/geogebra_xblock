@@ -40,6 +40,14 @@ class GeoGebraXBlock(XBlock):
         The primary view of the GeoGebraXBlock, shown to students
         when viewing courses.
         """
+
+	"""
+	Might come from an XML import that is missing the field
+	"""
+	if (typeof self.ggb_url === "undefined") {
+		self.ggb_url = ""
+	}
+
 	data = {
                 "ggb_url" : self.ggb_url
                }
