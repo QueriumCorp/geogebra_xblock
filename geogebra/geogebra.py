@@ -27,6 +27,8 @@ class GeoGebraXBlock(XBlock):
         help="A simple counter, to show something happening",
     )
 
+    display_name = String(help="block name", default="GeoGebra", scope=Scope.content)
+
     ggb_url = String(help="GGB filename or URL", default="https://cdn.querium.com/geogebra/XXXXX.ggb", scope=Scope.content)
 
     def resource_string(self, path):
