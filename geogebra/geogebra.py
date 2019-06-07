@@ -40,6 +40,9 @@ class GeoGebraXBlock(XBlock):
         The primary view of the GeoGebraXBlock, shown to students
         when viewing courses.
         """
+
+	logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
+
 	data = {
                 "ggb_url" : self.ggb_url
                }
