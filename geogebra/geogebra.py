@@ -41,17 +41,10 @@ class GeoGebraXBlock(XBlock):
         when viewing courses.
         """
 
-	"""
-	Might come from an XML import that is missing the field
-	"""
-	var url = self.ggb_url
-
-	if (typeof url === "undefined") {
-		url = ""
-	}
+	logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
 
 	data = {
-                "ggb_url" : url
+                "ggb_url" : self.ggb_url
                }
 
         html = self.resource_string("static/html/geogebra.html")
