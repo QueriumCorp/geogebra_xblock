@@ -10,11 +10,6 @@ function GeoGebraXBlock(runtime, element, data) {
         ggb_url = data.ggb_url;
     };
 
-    // don't bother fetching the default url
-    if (ggb_url === "https://cdn.querium.com/geogebra/XXXXX.ggb") {
-        ggb_url = "";
-    };
-
     var ggbApp = new GGBApplet({
         "appName": "graphing", 
         "width": 800, 
@@ -28,7 +23,6 @@ function GeoGebraXBlock(runtime, element, data) {
     window.addEventListener("load", function() { 
         ggbApp.inject('ggb-element');
     });
-
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
