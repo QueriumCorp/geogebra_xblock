@@ -29,7 +29,7 @@ class GeoGebraXBlock(XBlock):
 
     display_name = String(help="block name", default="GeoGebra", scope=Scope.content)
 
-    ggb_url = String(help="GGB filename or URL", default="https://cdn.querium.com/geogebra/XXXXX.ggb", scope=Scope.content)
+    ggb_url = String(help="GGB filename or URL e.g https://cdn.querium.com/geogebra/XXXXX.ggb", default="", scope=Scope.content)
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -45,8 +45,20 @@ class GeoGebraXBlock(XBlock):
 
 	logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
 
+
+	"""
+	Ensure that the ggb_url attribute is defined in this xblock
+	"""
+
+	ggburl = ""
+
+	try:
+                ggburl = self.ggb_url
+	except NameError:
+                ggburl = ""
+
 	data = {
-                "ggb_url" : self.ggb_url
+                "ggb_url" : ggburl
                }
 
         html = self.resource_string("static/html/geogebra.html")
