@@ -21,10 +21,12 @@ function GeoGebraXBlock(runtime, element, data) {
     }, true);
     
     window.addEventListener("load", function() { 
-        ggbApp.inject('ggb-element');
+        ggbApp.inject('ggb-element');	// This just works on the initial page load, not on the initialization of each xblock 
     });
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
     });
+
+    ggbApp.inject('ggb-element');	// Try to get the ggbApp to load for every GeoGebra xblock on this page
 }
