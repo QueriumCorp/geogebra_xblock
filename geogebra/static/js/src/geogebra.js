@@ -20,9 +20,9 @@ function GeoGebraXBlock(runtime, element, data) {
         "filename": ggb_url
     }, true);
     
-    window.addEventListener("load", function() { 
-        ggbApp.inject('ggb-element');	// This just works on the initial page load, not on the initialization of each xblock 
-    });
+    // window.addEventListener("load", function() { 
+    //    ggbApp.inject('ggb-element');	// This just works on the initial page load, not on the initialization of each xblock 
+    // });
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
