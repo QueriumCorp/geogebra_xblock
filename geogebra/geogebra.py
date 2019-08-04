@@ -34,6 +34,10 @@ class GeoGebraXBlock(XBlock):
 
     ggb_url = String(help="GGB filename or URL e.g https://cdn.querium.com/geogebra/XXXXX.ggb", default="", scope=Scope.content)
 
+    # Hidden field to save the UUID for this instance of the Xblock.
+    url_name = String(help="UUID of this instance", default="NONE", scope=Scope.content)
+
+
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
