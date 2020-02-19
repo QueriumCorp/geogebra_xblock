@@ -4,5 +4,4 @@ A simple edX xBlock wrapper around the GeoGebra graphing calculator widget. Note
 
 Documentation
 -------------
-Documentation for all Rover source code is now located 
-in `Read The Docs <https://querium-adminroverbyopenstaxorg.readthedocs-hosted.com>`__
+Documentation for all Rover source code is now located in `Read The Docs <http://readthedocs.roverbyopenstax.org/>`__ 
