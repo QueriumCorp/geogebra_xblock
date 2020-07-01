@@ -54,20 +54,20 @@ class GeoGebraXBlock(XBlock):
         logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
 
 
-	"""
-	Ensure that the ggb_url attribute is defined in this xblock
-	"""
+        """
+        Ensure that the ggb_url attribute is defined in this xblock
+        """
 
-	ggburl = ""
+        ggburl = ""
 
-	try:
-                ggburl = self.ggb_url
-	except NameError:
-                ggburl = ""
+        try:
+            ggburl = self.ggb_url
+        except NameError:
+            ggburl = ""
 
-	data = {
+        data = {
                 "ggb_url" : ggburl
-               }
+                }
 
         html = self.resource_string("static/html/geogebra.html")
         frag = Fragment(html.format(self=self))
