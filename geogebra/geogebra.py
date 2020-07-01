@@ -85,7 +85,7 @@ class GeoGebraXBlock(XBlock):
 
         self.display_name = "GeoGebra"
 
-        print self.display_name
+        print(self.display_name)
         return {'result': 'success'}
 
     # TO-DO: change this handler to perform your own actions.  You may need more
