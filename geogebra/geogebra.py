@@ -50,7 +50,8 @@ class GeoGebraXBlock(XBlock):
         when viewing courses.
         """
 
-	logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
+	    # mcdaniel jul-2020: fix indentation error
+        logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
 
 
 	"""
