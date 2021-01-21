@@ -9,6 +9,8 @@ from xblock.fields import Integer, Scope, String
 from web_fragments.fragment import Fragment
 # from xblock.scorable import ScorableXBlockMixin, Score
 from xblockutils.studio_editable import StudioEditableXBlockMixin
+
+DEBUG = False
 from logging import getLogger
 logger = getLogger(__name__)
 
@@ -51,7 +53,7 @@ class GeoGebraXBlock(XBlock):
         """
 
 	    # mcdaniel jul-2020: fix indentation error
-        logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
+        if DEBUG: logger.info("geogebra student_view ggb_url={a}".format(a=self.ggb_url))
 
 
         """
@@ -80,7 +82,7 @@ class GeoGebraXBlock(XBlock):
     # SAVE GGB URL
     @XBlock.json_handler
     def save_question(self, data, suffix=''):
-        logger.info('save_question() - entered')
+        if DEBUG: logger.info('save_question() - entered')
         self.ggb_url = data['ggb_url']
 
         self.display_name = "GeoGebra"
@@ -120,7 +122,7 @@ class GeoGebraXBlock(XBlock):
         ]
 
     def studio_view(self, context=None):
-        logger.info('geogebra xblock studio_view() - entered')
+        if DEBUG: logger.info('geogebra xblock studio_view() - entered')
         """
         The STUDIO view of the GeoGebraXblock, shown to instructors
         when authoring courses.
@@ -134,7 +136,7 @@ class GeoGebraXBlock(XBlock):
         return frag
 
     def author_view(self, context=None):
-        logger.info('geogebra xblock author_view() - entered')
+        if DEBUG: logger.info('geogebra xblock author_view() - entered')
         """
         The AUTHOR view of the GeoGebraXblock, shown to instructors
         when previewing courses.
